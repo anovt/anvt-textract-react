@@ -1,20 +1,24 @@
 import './App.css';
 import { useState, useRef } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import FileUpload from "./component/FileUpload";
+import Home from "./component/Home";
+import TextAnalyze from './component/TextAnalyze';
 function App() {
-  const getFileName = async (filename) => {
-    const data = { flname: filename };
-    try {
-      const res = await axios.post("http://localhost:4000/textract", data);
-      console.log(res.data);
-    } catch (err) {}
-  };
+
 
   return (
     <div className="App">
-      <FileUpload ongetFileName={getFileName}></FileUpload>
+     <BrowserRouter>
+      <Routes>
+      
+          <Route index element={<Home />} />
+          <Route path="text-anazlyze/:jobsId" element={<TextAnalyze />} />
+         
+      
+      </Routes>
+    </BrowserRouter>
     </div>
   );
 }

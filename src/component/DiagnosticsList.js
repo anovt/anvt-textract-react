@@ -4,6 +4,8 @@ const DiagnosticsList = (props) => {
     //console.log(props.diagnostics, "props.diagnostics");
   return (
     
+
+    
     <div>
       <h2>Diagnostics Report</h2>
       <ul>
